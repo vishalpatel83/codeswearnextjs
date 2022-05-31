@@ -60,8 +60,13 @@ export const Navbar = () => {
                         </div>
                     </li>
                 </ol>
-                <button class="flex mx-auto mt-16 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg"><BsFillBagCheckFill className='m-1'/>Checkout</button>
+                <div className="flex">
+                <button class="flex text-sm mx-2  text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded "><BsFillBagCheckFill className='m-1'/>Checkout</button>
+                <button class="flex text-sm  mx-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded "> Clear Cart</button>
+                
             </div>
+                </div>
+
         </div>
     )
 }

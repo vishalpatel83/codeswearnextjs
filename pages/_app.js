@@ -18,11 +18,11 @@ function MyApp({ Component, pageProps }) {
     }
   },[])
   const saveCart=(myCart)=>{
-    localStorage.setItem("cart",myCart);
+    localStorage.setItem("cart",JSON.stringify(myCart));
     let subt=0;
     let keys=Object.keys(myCart)
     for (let i = 0; i < keys.length; i++) {
-      subt+=myCart[keys[i]].price *myCart[keys[i]].qty;       
+      subt+=myCart[keys[i]].price * myCart[keys[i]].qty;       
     }
     setsubTotal(subt);
   }
@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
     debugger
    let newCart=cart;
    if(itemCode in cart){
-     newCart[itemCode].qty=cart[itemcode].qty+qty;
+     newCart[itemCode].qty=cart[itemCode].qty+qty;
    }
    else{
      newCart[itemCode]={qty:1,price,name,size,varient}
@@ -42,13 +42,14 @@ function MyApp({ Component, pageProps }) {
    setcart(newCart);
    saveCart(newCart);
   }
-  const removeFromCart=()=>{
+  const removeFromCart=(itemCode,qty,price,name,size,varient)=>{
+    debugger
     let newCart=cart;
     if(itemCode in cart){
-      newCart[itemCode].qty=cart[itemcode].qty-qty;
+      newCart[itemCode].qty=cart[itemCode].qty-qty;
     }
     if(newCart[itemCode].qty<=0){
-        delete newCart["itemCode"]
+        delete newCart[itemCode]
     }
     setcart(newCart);
     saveCart(newCart);

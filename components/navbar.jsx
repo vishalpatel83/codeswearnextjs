@@ -57,7 +57,7 @@ export const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
                             return <li key={index}>
                             <div className="item flex my-5">
                                 <div className='w-2/3 font-semibold '>{cart[k].name}</div>
-                                <div className=' flex w-1/3  font-semibold item-center justify-center text-lg'><AiOutlineMinusCircle className='cursor-pointer text-pink-500'/><span className='mx-2 text-sm'>{cart[k].qty}</span><AiOutlinePlusCircle className='cursor-pointer text-pink-500'/></div>
+                                <div className=' flex w-1/3  font-semibold item-center justify-center text-lg'><AiOutlineMinusCircle  onClick={()=>removeFromCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].varient)}  className='cursor-pointer text-pink-500'/><span className='mx-2 text-sm'>{cart[k].qty}</span><AiOutlinePlusCircle className='cursor-pointer text-pink-500'onClick={()=>addToCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].varient)}/></div>
                             </div>
                         </li>
                         })
@@ -65,7 +65,7 @@ export const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
                 </ol>
                 <div className="flex">
                 <button class="flex text-sm mx-2  text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded "><BsFillBagCheckFill className='m-1'/>Checkout</button>
-                <button class="flex text-sm  mx-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded "> Clear Cart</button>
+                <button class="flex text-sm  mx-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded " onClick={()=>clearCart()}> Clear Cart</button>
                 
             </div>
                 </div>

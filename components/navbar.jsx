@@ -2,6 +2,7 @@ import React from 'react'
 import Image from "next/image"
 import Link from 'next/link';
 import { BsCartPlus ,BsFillBagCheckFill} from "react-icons/Bs";
+import {MdAccountCircle} from "react-icons/md";
 import { AiFillCloseCircle,AiOutlinePlusCircle,AiOutlineMinusCircle } from "react-icons/ai";
 import { useRef } from 'react';
 export const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
@@ -34,8 +35,11 @@ export const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
                 </ul>
 
             </div>
-            <div className="cart absolute right-0  top-4 mx-5">
-                <button onClick={toggleCart}><BsCartPlus className=' text-xl md:text-3xl' /></button>
+             
+            <div className="cart absolute right-0 top-4 mx-5 flex" >
+                {/* <button onClick={toggleCart}> */}
+                    <MdAccountCircle className='text-xl md:text-3xl mx-2' /><BsCartPlus onClick={toggleCart} className='text-xl md:text-3xl' />
+                    {/* </button> */}
             </div>
             <div ref={ref} className=" w-72 sidecart absolute right-0 top-0 bg-pink-100 px-8 py-10 transform transition-transform translate-x-full my-2 " style={{ borderRadius: "10px" }}>
                 <h2 className='text-xl font-bold text-center'>shopping cart</h2>
@@ -64,8 +68,8 @@ export const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
                     }
                 </ol>
                 <div className="flex">
-                <button class="flex text-sm mx-2  text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded "><BsFillBagCheckFill className='m-1'/>Checkout</button>
-                <button class="flex text-sm  mx-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded " onClick={()=>clearCart()}> Clear Cart</button>
+                <button className="flex text-sm mx-2  text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded "><BsFillBagCheckFill className='m-1'/>Checkout</button>
+                <button className="flex text-sm  mx-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded " onClick={()=>clearCart()}> Clear Cart</button>
                 
             </div>
                 </div>

@@ -26,7 +26,7 @@ const ProductSchema=new mongoose.Schema({
         type:String,
     },
     color:{
-        type:string
+        type:String
     },
     prize:{
         type:Number,
@@ -38,4 +38,5 @@ const ProductSchema=new mongoose.Schema({
     }
 
 },{timestamps:true});
+mongoose.model={} 
 export default mongoose.model("Product",ProductSchema);

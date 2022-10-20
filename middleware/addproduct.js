@@ -14,7 +14,6 @@ const handler=async (req,res)=>{
         color:req.body[i].color,
         prize:req.body[i].title,
         availableQuantity:req.body[i].availableQuantity
-    
 
     })
     await p.save();

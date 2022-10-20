@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-const connectDb=async (handler)=>{
+export const connectDb=async (handler)=>{
     if(mongoose.connections[0].readyState){
         return handler(req,res);
     }
